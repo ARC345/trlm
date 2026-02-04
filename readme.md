@@ -1,6 +1,8 @@
-# TRM: Iterative Refinement Research
+# TRLM: Tiny Recursive Language Model
 
 Exploring recursive refinement for language model generation. Testing whether predicting multiple tokens at once and refining them together can improve over standard autoregressive generation.
+
+> **Note:** This is a fork of [MikeyBeez/trm](https://github.com/MikeyBeez/trm). Original work by Michael Bonsignore (@MikeyBeez).
 
 ## 🎯 Key Results
 
@@ -78,20 +80,11 @@ Exploring recursive refinement for language model generation. Testing whether pr
 ## 🚀 Installation
 
 ```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Install dependencies with pixi
+pixi install
 
-# Install dependencies
-pip install torch numpy matplotlib
-
-# Download datasets
-# For Tiny Shakespeare:
-wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt -O tiny_shakespeare.txt
-
-# For WikiText-103:
-wget https://s3.amazonaws.com/research.metamind.io/wikitext/wikitext-103-v1.zip
-unzip wikitext-103-v1.zip
+# Or manually with pip:
+pip install torch numpy datasets transformers tqdm
 ```
 
 ## 📊 Usage
@@ -99,7 +92,8 @@ unzip wikitext-103-v1.zip
 ### Run Scaled WikiText-103 Experiment
 
 ```bash
-python bigger.py
+pixi run train
+# or: python bigger.py
 ```
 
 Expected output:
@@ -110,13 +104,15 @@ Expected output:
 
 To continue from a checkpoint:
 ```bash
-python continue_bigger.py
+pixi run continue-train
+# or: python continue_bigger.py
 ```
 
 ### Run Tiny Shakespeare Proof of Concept
 
 ```bash
-python chunk_trm_2.py
+pixi run poc
+# or: python chunk_trm_2.py
 ```
 
 Expected output:
@@ -246,31 +242,16 @@ Successfully demonstrated scaling across **3 orders of magnitude:**
 - Comparison with standard transformer baseline at 19M parameters
 - Extended training to convergence
 
-## 📖 Citation
+## 📖 Credits
 
-If you use this work, please reference:
+**Original work by:** Michael Bonsignore ([@MikeyBeez](https://github.com/MikeyBeez))
+- Original repo: [MikeyBeez/trm](https://github.com/MikeyBeez/trm)
 
-```bibtex
-@misc{bonsignore2025trm,
-  title={TRM: Tensor Refinement Modules for Parameter-Efficient Language Modeling},
-  author={Bonsignore, Michael},
-  year={2025},
-  url={https://github.com/MikeyBeez/trm},
-  note={WikiText-103 validation perplexity: 40.41 with 19.3M parameters}
-}
-```
-
-Built on ideas from "Less is More: Recursive Reasoning with Tiny Networks" (arXiv:2510.04871v1)
+Built on ideas from "Less is More: Recursive Reasoning with Tiny Networks" ([arXiv:2510.04871](https://arxiv.org/abs/2510.04871))
 
 ## 📜 License
 
 MIT License - see LICENSE file for details
-
-## 📧 Contact
-
-- **GitHub:** @MikeyBeez
-- **Medium:** @mbonsign
-- **Status:** Active research - scaling validation complete ✅
 
 ---
 
