@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-TRM (Tiny Recurrent Model) is a PyTorch research codebase exploring iterative refinement techniques for parameter-efficient language modeling. The key innovation is a two-level recursion system where inner loops update a reasoning latent state and outer loops refine prediction drafts.
+TRLM (Tiny Recursive Language Model) is a PyTorch research codebase exploring iterative refinement techniques for parameter-efficient language modeling. The key innovation is a two-level recursion system where inner loops update a reasoning latent state and outer loops refine prediction drafts.
 
 **Key Result**: 19.3M parameter TRM achieves 40.41 perplexity on WikiText-103 (GPT-2 with 117M params achieves 37.5 - only 7.7% worse with 83.5% fewer parameters).
 
