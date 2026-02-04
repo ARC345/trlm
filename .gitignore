@@ -22,6 +22,9 @@ pyvenv.cfg
 *.so
 *.a
 
+# Pixi
+.pixi/
+
 # Model directories
 *_model/
 *_gpt/
